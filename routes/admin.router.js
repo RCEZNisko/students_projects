@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminRouter = void 0;
+const admin_controller_1 = require("../controllers/admin.controller");
+const express_1 = require("express");
+const router = (0, express_1.Router)();
+router.post("/force-backup", admin_controller_1.handleForceBackup);
+router.post("/change-password", admin_controller_1.handleChangePassword);
+router.get('/backup', admin_controller_1.handleDownloadBackup);
+exports.adminRouter = router;

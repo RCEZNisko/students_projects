@@ -1,0 +1,37 @@
+{
+    "technologies": {
+        "0": "React",
+        "1": "NodeJs",
+        "2": "Angular",
+        "3": "AngularJs",
+        "4": "HTML",
+        "5": "CSS",
+        "6": "JavaScript",
+        "7": "TypeScript",
+        "8": "Lua",
+        "9": "RubbyOnRails",
+        "10": "Elixir",
+        "12": "Go",
+        "13": "Swift"
+    },
+    "categories": {
+        "1": "Aplikacja webowa",
+        "2": "Aplikacja mobilna",
+        "3": "Aplikacja desktopowa",
+        "4": "Narzędzie internetowe",
+        "5": "System informatyczny",
+        "6": "Oprogramowanie biznesowe",
+        "7": "Oprogramowanie użytkowe",
+        "8": "Oprogramowanie systemowe",
+        "9": "Platforma cyfrowa",
+        "10": "Narzędzie analityczne",
+        "11": "Rozwiązanie chmurowe",
+        "12": "Oprogramowanie specjalistyczne",
+        "13": "API",
+        "14": "Oprogramowanie open-source",
+        "15": "Usługa sieciowa",
+        "16": "Rozwiązanie enterprise",
+        "17": "Oprogramowanie wbudowane",
+        "18": "Narzędzie programistyczne"
+    }
+}

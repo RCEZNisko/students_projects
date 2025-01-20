@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mainRouter = void 0;
+const express_1 = require("express");
+const tags_router_1 = require("./tags.router");
+const auth_middleware_1 = __importDefault(require("../middleware/auth.middleware"));
+const auth_router_1 = require("./auth.router");
+const projects_router_1 = require("./projects.router");
+const admin_router_1 = require("./admin.router");
+const uploadCodes_router_1 = require("./uploadCodes.router");
+const router = (0, express_1.Router)();
+router.use("/auth", auth_router_1.authRouter);
+router.use("/projects", projects_router_1.projectsRouter);
+router.use("/admin", auth_router_1.authRouter, admin_router_1.adminRouter);
+router.use("/tags", tags_router_1.tagsRouter);
+router.use("/upload-codes", auth_middleware_1.default, uploadCodes_router_1.uploadCodesRouter);
+exports.mainRouter = router;
