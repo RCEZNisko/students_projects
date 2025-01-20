@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RESTRICTED_FILENAMES = exports.BACKUP_CRON_TIME = exports.BACKUPS_DIR = exports.JWT_SECRET = exports.PROJECTS_PER_PAGE = exports.TEMP_DIR = exports.PENDING_PROJECTS_DIR = exports.PROJECTS_DIR = exports.DEV = exports.SERVER_PORT = void 0;
 const path_1 = __importDefault(require("path"));
-exports.SERVER_PORT = 80;
+exports.SERVER_PORT = 3010;
 exports.DEV = false;
 exports.PROJECTS_DIR = path_1.default.join(__dirname, "./storage/projects");
 exports.PENDING_PROJECTS_DIR = path_1.default.join(__dirname, "./storage/pending-projects");
