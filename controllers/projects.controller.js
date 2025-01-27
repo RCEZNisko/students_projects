@@ -8,10 +8,10 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const constants_1 = require("../constants");
 const crypto_1 = require("crypto");
-const db_1 = __importDefault(require("../lib/db"));
+const db_1 = __importDefault(require("lib/db"));
 const archiver_1 = __importDefault(require("archiver"));
-const tokenStatus_1 = __importDefault(require("../lib/enums/tokenStatus"));
-const auth_middleware_1 = require("../middleware/auth.middleware");
+const tokenStatus_1 = __importDefault(require("lib/enums/tokenStatus"));
+const auth_middleware_1 = require("middleware/auth.middleware");
 const generateRandomPastelColor = () => {
     const r = () => Math.floor(Math.random() * 152 + 103);
     const toHex = (value) => value.toString(16).padStart(2, '0');
@@ -20,7 +20,7 @@ const generateRandomPastelColor = () => {
 const sanitizeFileName = (fileName) => {
     let isRestricted = false;
     return !isRestricted && fileName.split('/').map(name => {
-        name = name.replace(/[^a-zA-Z0-9_\-.\\/]+/g, '_');
+        name = name.replace(/[^a-zA-Z0-9_\-.\\ /]+/g, '_');
         if (constants_1.RESTRICTED_FILENAMES.includes(name)) {
             isRestricted = true;
         }
@@ -58,6 +58,11 @@ const handleUploadProject = async (req, res) => {
                 if (fileContent.startsWith('data:')) {
                     const base64Data = fileContent.split(';base64,').pop();
                     const buffer = Buffer.from(base64Data, 'base64');
+                    await fs_1.default.promises.writeFile(path_1.default.join(filePath, fileName), buffer);
+                }
+                else if (fileContent.startsWith('ARCHIVE:')) {
+                    const archiveData = fileContent.split('ARCHIVE:').pop();
+                    const buffer = Buffer.from(archiveData, 'binary');
                     await fs_1.default.promises.writeFile(path_1.default.join(filePath, fileName), buffer);
                 }
                 else {
