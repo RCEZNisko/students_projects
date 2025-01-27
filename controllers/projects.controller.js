@@ -8,10 +8,10 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const constants_1 = require("../constants");
 const crypto_1 = require("crypto");
-const db_1 = __importDefault(require("lib/db"));
+const db_1 = __importDefault(require("../lib/db"));
 const archiver_1 = __importDefault(require("archiver"));
-const tokenStatus_1 = __importDefault(require("lib/enums/tokenStatus"));
-const auth_middleware_1 = require("middleware/auth.middleware");
+const tokenStatus_1 = __importDefault(require("../lib/enums/tokenStatus"));
+const auth_middleware_1 = require("../middleware/auth.middleware");
 const generateRandomPastelColor = () => {
     const r = () => Math.floor(Math.random() * 152 + 103);
     const toHex = (value) => value.toString(16).padStart(2, '0');
