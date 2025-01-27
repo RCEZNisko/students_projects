@@ -22,7 +22,7 @@ app.use(express_1.default.json({
 }));
 app.use((0, errorHandler_middleware_1.default)());
 app.use((0, cors_1.default)({
-    origin: `http://195.164.147.14:${constants_1.SERVER_PORT}`,
+    origin: `http://localhost:${constants_1.SERVER_PORT}`,
     credentials: true,
     methods: ['GET', 'POST', 'DELETE', 'PATCH']
 }));
