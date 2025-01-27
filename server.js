@@ -22,7 +22,7 @@ app.use(express_1.default.json({
 }));
 app.use((0, errorHandler_middleware_1.default)());
 app.use((0, cors_1.default)({
-    origin: '*',
+    origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'DELETE', 'PATCH']
 }));
