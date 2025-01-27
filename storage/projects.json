@@ -1,24 +1,30 @@
 {
     "projects": {},
     "pendingProjects": {
-        "69f3e866fbcb872a": {
-            "name": "TEST PROJECT",
-            "id": "69f3e866fbcb872a",
-            "author": "TEST TEST",
+        "575c07abc02af709": {
+            "name": "TEST",
+            "id": "575c07abc02af709",
+            "author": "TEST",
             "description": "TEST",
-            "date": 1737367249681,
-            "color": "#6a84f0",
+            "date": 1737969068263,
+            "color": "#75db9e",
             "tags": {
-                "technologies": [],
-                "category": 1
+                "technologies": [
+                    0,
+                    1,
+                    2
+                ],
+                "category": 3
             },
             "stats": {
                 "views": 0,
                 "downloads": 0
             },
             "files": [
-                "NOEXTENSIONFILE",
-                "1.py"
+                "2048.jpeg",
+                "server.ts",
+                "images.png",
+                "pexels-thatguycraig000-1563356.jpg"
             ]
         }
     }

@@ -55,11 +55,17 @@ const handleUploadProject = async (req, res) => {
                 await writeFile(fileName.substring(dirName.length + 1), fileContent, filePath);
             }
             else {
-                await fs_1.default.promises.writeFile(path_1.default.join(filePath, fileName), fileContent, {
-                    encoding: 'utf8',
-                    mode: 0o666,
-                    flag: 'w'
-                });
+                if (fileContent.startsWith('data:')) {
+                    const base64Data = fileContent.split(';base64,').pop();
+                    const buffer = Buffer.from(base64Data, 'base64');
+                    await fs_1.default.promises.writeFile(path_1.default.join(filePath, fileName), buffer);
+                }
+                else {
+                    await fs_1.default.promises.writeFile(path_1.default.join(filePath, fileName), fileContent, {
+                        encoding: 'utf-8',
+                        flag: 'w'
+                    });
+                }
             }
         };
         await Promise.all(Object.keys(files).map(async (fileName) => {
@@ -214,7 +220,7 @@ const handleDeleteProject = async (req, res) => {
         const projectsStore = await db_1.default.projects();
         if (!Object.keys(projectsStore.data.projects).includes(projectId))
             return res.error("No project found.", 404);
-        await fs_1.default.promises.rm(path_1.default.join(constants_1.PROJECTS_DIR, projectId), {
+        await fs_1.default.promises.rm(path_1.default.join(__dirname, constants_1.PROJECTS_DIR, projectId), {
             recursive: true,
             force: true
         });
